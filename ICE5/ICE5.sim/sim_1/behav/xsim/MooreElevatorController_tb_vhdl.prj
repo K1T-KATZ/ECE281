@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../code/MooreElevatorController.vhd" \
+"../../../../../code/MooreElevatorController_tb.vhd" \
+
+# Do not sort compile order
+nosort

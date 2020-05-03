@@ -1,0 +1,1 @@
+-wto "480188f0e4dd44f09e63f225aec35666" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "MooreElevatorController_tb_behav" "xil_defaultlib.MooreElevatorController_tb" -log "elaborate.log" 

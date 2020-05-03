@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="thunderbird_FSM_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="thunderbird_FSM_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="209642471fs"></ZoomEndTime>
+      <Cursor1Time time="235645000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/thunderbird_FSM_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/left" type="logic">
+      <obj_property name="ElementShortName">left</obj_property>
+      <obj_property name="ObjectShortName">left</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/right" type="logic">
+      <obj_property name="ElementShortName">right</obj_property>
+      <obj_property name="ObjectShortName">right</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/lights_L" type="array">
+      <obj_property name="ElementShortName">lights_L[2:0]</obj_property>
+      <obj_property name="ObjectShortName">lights_L[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/lights_R" type="array">
+      <obj_property name="ElementShortName">lights_R[2:0]</obj_property>
+      <obj_property name="ObjectShortName">lights_R[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/k_clk_period" type="other">
+      <obj_property name="ElementShortName">k_clk_period</obj_property>
+      <obj_property name="ObjectShortName">k_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/uut_inst/Q_next" type="array">
+      <obj_property name="ElementShortName">Q_next[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_next[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_FSM_tb/uut_inst/Q" type="array">
+      <obj_property name="ElementShortName">Q[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
