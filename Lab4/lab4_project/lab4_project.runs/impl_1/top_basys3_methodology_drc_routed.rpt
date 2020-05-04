@@ -1,0 +1,133 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Mon May  4 17:13:29 2020
+| Host         : C22CDKatz running 64-bit major release  (build 9200)
+| Command      : report_methodology -file top_basys3_methodology_drc_routed.rpt -pb top_basys3_methodology_drc_routed.pb -rpx top_basys3_methodology_drc_routed.rpx
+| Design       : top_basys3
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 19
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| LUTAR-1   | Warning  | LUT drives async reset alert  | 2          |
+| TIMING-17 | Warning  | Non-clocked sequential cell   | 9          |
+| TIMING-18 | Warning  | Missing input or output delay | 4          |
+| TIMING-20 | Warning  | Non-clocked latch             | 4          |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell clkdiv6hz_inst/f_count[30]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) clkdiv2hz_inst/f_clk_reg/CLR, clkdiv2hz_inst/f_count_reg[0]/CLR, clkdiv2hz_inst/f_count_reg[10]/CLR, clkdiv2hz_inst/f_count_reg[11]/CLR, clkdiv2hz_inst/f_count_reg[12]/CLR, clkdiv2hz_inst/f_count_reg[13]/CLR, clkdiv2hz_inst/f_count_reg[14]/CLR, clkdiv2hz_inst/f_count_reg[15]/CLR, clkdiv2hz_inst/f_count_reg[16]/CLR, clkdiv2hz_inst/f_count_reg[17]/CLR, clkdiv2hz_inst/f_count_reg[18]/CLR, clkdiv2hz_inst/f_count_reg[19]/CLR, clkdiv2hz_inst/f_count_reg[1]/CLR, clkdiv2hz_inst/f_count_reg[20]/CLR, clkdiv2hz_inst/f_count_reg[21]/CLR (the first 15 of 64 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell moore_elevator_controller_inst/current_state[3]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) thunderbird_fsm_inst/Q_reg[0]/CLR, thunderbird_fsm_inst/Q_reg[1]/CLR, thunderbird_fsm_inst/Q_reg[2]/CLR, moore_elevator_controller_inst/current_state_reg[0]/CLR, moore_elevator_controller_inst/current_state_reg[1]/CLR, moore_elevator_controller_inst/current_state_reg[2]/CLR, moore_elevator_controller_inst/current_state_reg[3]/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-17#1 Warning
+Non-clocked sequential cell  
+The clock pin TDM4_inst/f_sel_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Warning
+Non-clocked sequential cell  
+The clock pin TDM4_inst/f_sel_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Warning
+Non-clocked sequential cell  
+The clock pin moore_elevator_controller_inst/current_state_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Warning
+Non-clocked sequential cell  
+The clock pin moore_elevator_controller_inst/current_state_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Warning
+Non-clocked sequential cell  
+The clock pin moore_elevator_controller_inst/current_state_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Warning
+Non-clocked sequential cell  
+The clock pin moore_elevator_controller_inst/current_state_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Warning
+Non-clocked sequential cell  
+The clock pin thunderbird_fsm_inst/Q_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Warning
+Non-clocked sequential cell  
+The clock pin thunderbird_fsm_inst/Q_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Warning
+Non-clocked sequential cell  
+The clock pin thunderbird_fsm_inst/Q_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on btnC relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on btnL relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on btnR relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on btnU relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch desired_floor_reg[0] cannot be properly analyzed as its control pin desired_floor_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch desired_floor_reg[1] cannot be properly analyzed as its control pin desired_floor_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch desired_floor_reg[2] cannot be properly analyzed as its control pin desired_floor_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch desired_floor_reg[3] cannot be properly analyzed as its control pin desired_floor_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+

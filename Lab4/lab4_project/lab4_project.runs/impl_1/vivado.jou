@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon May  4 17:12:20 2020
+# Process ID: 24696
+# Current directory: C:/Users/C22Christopher.Katz/Documents/GitHub/ECE281/Lab4/lab4_project/lab4_project.runs/impl_1
+# Command line: vivado.exe -log top_basys3.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_basys3.tcl -notrace
+# Log file: C:/Users/C22Christopher.Katz/Documents/GitHub/ECE281/Lab4/lab4_project/lab4_project.runs/impl_1/top_basys3.vdi
+# Journal file: C:/Users/C22Christopher.Katz/Documents/GitHub/ECE281/Lab4/lab4_project/lab4_project.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source top_basys3.tcl -notrace
