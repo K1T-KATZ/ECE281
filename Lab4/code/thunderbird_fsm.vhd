@@ -13,7 +13,8 @@
 --| FILENAME      : thunderbird_fsm.vhd
 --| AUTHOR(S)     : C3C Lauren Humpherys and C3C Christopher Katz
 --| CREATED       : 03/30/2020
---| DESCRIPTION   : Implementation of thunderbird FSM module
+--| DESCRIPTION   : Implementation of the thunderbird FSM module, which is used to 
+--|					show the direction of elevator movement through the LED lights
 --|
 --| DOCUMENTATION : Captain Johnson helped us differentiate between state and 
 --| output logic. He also helped us correct major errors by telling us to uncomment 

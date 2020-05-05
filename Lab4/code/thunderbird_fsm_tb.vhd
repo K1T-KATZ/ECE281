@@ -14,6 +14,8 @@
 --| AUTHOR(S)     : C3C Lauren Humpherys and C3C Christopher Katz
 --| CREATED       : 03/30/2020
 --| DESCRIPTION   : This file contains test cases to evaluate the functionality 
+--|					of the thunderbird FSM module, which is used to show the
+--|					direction of elevator movement through the LED lights
 --|
 --| DOCUMENTATION : (See thunderbird_fsm.vhd)
 --|
