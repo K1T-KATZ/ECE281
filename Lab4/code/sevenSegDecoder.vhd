@@ -12,7 +12,7 @@
 --|
 --| FILENAME      : sevenSegDecoderder.vhd
 --| AUTHOR(S)     : C3C Lauren Humpherys and C3C Christopher Katz
---| CREATED       : 02/15/2020
+--| CREATED       : 02/15/2020, Modified 04/2020
 --| DESCRIPTION   : Program decoder to generate appropriate output for input of 
 --| 				7 segments of the second annode (1s column).  				
 --| DOCUMENTATION : See top_basys3.vhd
@@ -23,7 +23,7 @@
 --|
 --|    Libraries : ieee
 --|    Packages  : std_logic_1164, numeric_std, unisim
---|    Files     : LIST ANY DEPENDENCIES
+--|    Files     : None.
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -54,12 +54,10 @@ library ieee;
 library unisim;
   use UNISIM.Vcomponents.ALL;
 
--- entity name should match filename  
 entity sevenSegDecoder is 
 	port(
 		i_D : in std_logic_vector(3 downto 0);
 		o_S : out std_logic_vector(6 downto 0)
---sevenSegDecoder- Identify input and output bits here
   );
 end sevenSegDecoder;
 
@@ -71,16 +69,10 @@ architecture sevenSegDecoder_arch of sevenSegDecoder is
 	signal c_Se : std_logic;
 	signal c_Sf : std_logic;
 	signal c_Sg : std_logic;
-	
-		
-	-- intermediate signals with initial value
-	-- typically you would use names that relate to signal (e.g. c_mux_2)
   
 begin
 	-- CONCURRENT STATEMENTS "MODULES" ------------------
 
-	-- Provide a comment that describes each "module" as appropriate
-	-- think of "modules" in this sense as groups of related statements
 	o_S(0) <= c_Sa;
 	o_S(1) <= c_Sb;
 	o_S(2) <= c_Sc;

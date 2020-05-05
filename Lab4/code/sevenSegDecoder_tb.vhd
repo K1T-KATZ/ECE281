@@ -23,7 +23,7 @@
 --|
 --|    Libraries : ieee
 --|    Packages  : std_logic_1164, numeric_std, unisim
---|    Files     : LIST ANY DEPENDENCIES
+--|    Files     : sevenSegDecoder.vhd
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -59,51 +59,32 @@ end sevenSegDecoder_tb;
 
 architecture test_bench of sevenSegDecoder_tb is 
 	
-  -- declare the component of your top-level design unit under test (UUT)
+  -- declaration of the component of top-level design unit under test (UUT)
   component sevenSegDecoder is
     port(
-	-- Identify input and output bits here
+	-- Identification of input and output bits here
 	i_D		:	in std_logic_vector(3 downto 0);
 	o_s		:	out std_logic_vector(6 downto 0)
     );	
   end component;
 
-  -- declare any additional components required
+  -- Additional components that are required
   	signal w_i_D		:	std_logic_vector(3 downto 0);
 	signal w_o_S		:	std_logic_vector(6 downto 0);
-  
-  -- declare signals needed to stimulate the UUT inputs
-
-  -- also need signals for the outputs of the UUT
 
   
 begin
 	-- PORT MAPS ----------------------------------------
 
-	-- map ports for any component instances (port mapping is like wiring hardware)
 	uut_inst : sevenSegDecoder port map (
 		i_D	=>	w_i_D,
 		o_S	=>	w_o_S
-	  -- use comma (not a semicolon)
-	  -- no comma on last line
 	);
 
-
-	-- CONCURRENT STATEMENTS ----------------------------
-
-	
-	-- PROCESSES ----------------------------------------
-	
-	-- Provide a comment that describes each process
-	-- block them off like the modules above and separate with SPACE
-	-- You will at least have a test process
-	
 	
 	-- Test Plan Process --------------------------------
-	-- Implement the test plan here.  Body of process is continuous from time = 0  
 	test_process : process 
 	begin
-		-- ex: assign '0' for first 100 ns, then '1' for next 100 ns, then '0'
 		w_i_D <= x"0"; wait for 10 ns;
 		w_i_D <= x"1"; wait for 10 ns;
 		w_i_D <= x"2"; wait for 10 ns;

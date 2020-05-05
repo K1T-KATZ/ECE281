@@ -124,10 +124,6 @@ begin
     -- Output logic     ---------------------------------    
     
     -- default is floor1
-    --floor <= "0001" when current_state = s_floor1 else
-    --         "0010" when current_state = s_floor2 else
-    --         "0011" when current_state = s_floor3 else
-    --         "0100" when current_state = s_floor4 else "0001";
     
     floor <= X"1" when current_state = s_floor1 else
             X"2" when current_state = s_floor2 else

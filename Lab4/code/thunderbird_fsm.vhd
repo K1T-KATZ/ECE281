@@ -27,7 +27,7 @@
 --|
 --|    Libraries : ieee
 --|    Packages  : std_logic_1164, numeric_std, unisim
---|    Files     : LIST ANY DEPENDENCIES
+--|    Files     : None.
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -58,7 +58,6 @@ library ieee;
 library unisim;
   use UNISIM.Vcomponents.ALL;
 
--- entity name should match filename  
 entity thunderbird_fsm is 
   port(
 		i_clk, i_reset : in std_logic;
@@ -67,7 +66,6 @@ entity thunderbird_fsm is
 		o_lights_R : out std_logic_vector(2 downto 0)
 	);
 end thunderbird_fsm;
-	-- Identify input and output bits here
 	
 
 architecture thunderbird_FSM_arch of thunderbird_FSM is 

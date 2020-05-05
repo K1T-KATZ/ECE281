@@ -25,7 +25,7 @@
 --|
 --|    Libraries : ieee
 --|    Packages  : std_logic_1164, numeric_std, unisim
---|    Files     : LIST ANY DEPENDENCIES
+--|    Files     : thunderbird_fsm.vhd
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -61,7 +61,7 @@ end thunderbird_FSM_tb;
 
 architecture test_bench of thunderbird_FSM_tb is 
 	
-  -- Component of top-level design unit under test (UUT)
+  -- Component declaration of top-level design unit under test (UUT)
   component thunderbird_FSM is
     port(
 		i_clk, i_reset : in std_logic;
@@ -70,8 +70,6 @@ architecture test_bench of thunderbird_FSM_tb is
 		o_lights_R : out std_logic_vector(2 downto 0)
     );	
   end component;
-
-  -- declare any additional components required
   
   
   -- Signals needed to stimulate the UUT inputs
@@ -91,7 +89,6 @@ architecture test_bench of thunderbird_FSM_tb is
 begin
 	-- PORT MAPS ----------------------------------------
 
-	-- map ports for any component instances (port mapping is like wiring hardware)
 	uut_inst : thunderbird_FSM port map (
 		i_clk        => clk,
 		i_reset      =>  reset,
@@ -103,9 +100,6 @@ begin
 	
 	-- PROCESSES ----------------------------------------
 	
-	-- Provide a comment that describes each process
-	-- block them off like the modules above and separate with SPACE
-	-- You will at least have a test process
 	
 	-- Clock process definitions ------------------------
 	clk_proc : process

@@ -42,7 +42,7 @@
 --|    Libraries : ieee
 --|    Packages  : std_logic_1164, numeric_std
 --|    Files     : MooreElevatorController.vhd, clock_divider.vhd, sevenSegDecoder.vhd
---|				   thunderbird_fsm.vhd, sevenSegDecoder, TDM4.vhd, OTHERS???
+--|				   thunderbird_fsm.vhd, sevenSegDecoder, TDM4.vhd
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -146,32 +146,34 @@ component thunderbird_fsm is
 	);
 end component thunderbird_fsm;
 
-
-	
-	-- create wire to connect button to 7SD enable (active-low)
-	--signal w_7SD_EN_n : std_logic := '0';	
-	signal w_clk : std_logic;
+	-- Reset signals
 	signal fsm_reset : std_logic;
 	signal clock_reset : std_logic;
-    --signal master_reset : std_logic;
+	
+	-- MooreElevatorController signals
+	signal w_clk_1 : std_logic;
 	signal w_updown : std_logic;
 	signal w_stop : std_logic;
-	signal w_data_out : std_logic_vector(3 downto 0);
-    --signal w_data : std_logic_vector(3 downto 0);
-	signal w_sel : std_logic;
-    signal w_floor : std_logic_vector(3 downto 0);
-    signal w_floor1 : std_logic_vector(3 downto 0);
-    signal w_floor2 : std_logic_vector(3 downto 0);
-    signal w_clk_1 : std_logic;
+	signal w_floor : std_logic_vector(3 downto 0);
+	
+	-- TDM4 signals
     signal w_clk_2 : std_logic;
+	signal w_floor1 : std_logic_vector(3 downto 0);
+    signal w_floor2 : std_logic_vector(3 downto 0);
+	signal w_data_out : std_logic_vector(3 downto 0);
+	
+	-- Thunderbird signals
     signal w_clk_3 : std_logic;
     signal w_thunderL : std_logic;
     signal w_thunderR : std_logic;
     signal w_led_R : std_logic_vector(2 downto 0);
     signal w_led_L : std_logic_vector(2 downto 0);
+	
+	-- Change Input Signals	
     signal desired_floor : std_logic_vector(3 downto 0);
     signal current_floor : std_logic_vector(3 downto 0);
 	signal w_goPress : std_logic;
+	signal w_sel : std_logic;
 
 
   
@@ -199,7 +201,7 @@ begin
 	clkdiv500hz_inst : clock_divider		--instantiation of clock_divider to take 
         generic map ( k_DIV => 50000 )     -- 500 Hz clock from 100 MHz
         port map (						    -- TDM4
-            i_clk   => clk,			        -- ORIG KDIV: 200000
+            i_clk   => clk,			        
             i_reset => btnU,			
             o_clk   => w_clk_2
         );
@@ -232,8 +234,8 @@ begin
 		   i_D2 		=> w_floor2,
 		   i_D1 		=> w_floor,
 		   i_D0 		=> w_floor,
-		   o_DATA		=> w_data_out,	    	--7seg decoder
-		   o_SEL(3)		=> an(3),       		-- selected data line (one-cold)	anode
+		   o_DATA		=> w_data_out,	    	
+		   o_SEL(3)		=> an(3),       		
 		   o_SEL(2)		=> an(2), 
 		   o_SEL(1)		=> an(1), 
 		   o_SEL(0)		=> an(0) 
@@ -255,23 +257,15 @@ begin
 	
 	-- CONCURRENT STATEMENTS ----------------------------
 	
-	-- wire up active-low 7SD anode to button (active-high)
-	-- display 7SD 0 only when button pushed
-	-- other 7SD are kept off
 	
-    an(1) <= '1';
+    an(1) <= '1';						-- Ground unused anodes
     an(0) <= '1';
-    fsm_reset <= btnU or btnR;        
-    clock_reset <= btnU or btnL;        --Clocks
+    fsm_reset <= btnU or btnR;        	-- btnU or btnR may be pressed to reset all FSMs (except TDM4 btnU only)
+    clock_reset <= btnU or btnL;        -- Resets all clocks except the 500 Hz clock that controls TDM4
       
-      
-	led(9 downto 6) <= "0000";
+	led(9 downto 6) <= "0000";						-- Ground unused LEDs
 	
-	-- leave unused switches UNCONNECTED
-	
-	--current_floor <= sw(15 downto 12);
-	
-    w_floor1 <= "0001" when w_floor > "1001" else 
+    w_floor1 <= "0001" when w_floor > "1001" else 				-- Enables the use of two anodes for double-digit floors
                 "0000";
     
     w_floor2 <= w_floor when w_floor < "1010" else
@@ -283,7 +277,7 @@ begin
                 "0101" when w_floor = "1111" else 
                 "0001";
    
-    moving_lights_proc : process (w_updown, w_stop, w_floor)
+    moving_lights_proc : process (w_updown, w_stop, w_floor)		-- Illuminates left or right LEDs, depending on elevator direction
         begin
             if w_updown = '1' and w_stop = '0' and w_floor < "1111" then
             w_thunderL <= '1';
@@ -297,26 +291,9 @@ begin
             end if;
      end process moving_lights_proc;
 	 
-	 
---	change_input_proc : process (w_floor, btnC)
---		begin
---		    if (btnC = '1') then 
---			     if w_floor = desired_floor then
- --                   w_updown <= '0';
- --                   w_stop <= '1';
---	             else 
- --                   if (w_floor < desired_floor) then
- --                       w_updown <= '1';
---                        w_stop <= '0';
---                    else
---                        w_updown <= '0';
---                        w_stop <= '0';                     
- --                   end if;
- --                end if;
---			end if;
---		end process change_input_proc;
+	
 		
-    change_input_proc : process (clk)
+    change_input_proc : process (clk)		-- Allows user to send elevator to predetermined desired floor
     begin 
     if (btnC = '1') then
              desired_floor <= sw(3 downto 0);
@@ -345,11 +322,8 @@ begin
         end if;
     end process change_input_proc;
      
-    --w_thunderL <= '1' when (sw(1) = '1' and sw(0) = '0' and w_floor < "1111") else 
-                --  '0';             
-    --w_thunderR <= '1' when (sw(1) = '0' and sw(0) = '0' and w_floor >  "0001") else 
-                 -- '0';
-	
+
+	-- Need to wire LEDs that light up simultaneously
 	led(15)    <= w_led_L(2);
 	led(14)    <= w_led_L(2);
 	led(13)    <= w_led_L(1);
@@ -363,12 +337,6 @@ begin
 	led(1)     <= w_led_R(0);
 	led(0)     <= w_led_R(0);
 	
-    
-	-- Ignore the warnings associated with these signals
-	-- Alternatively, you can create a different board implementation, 
-	--   or make additional adjustments to the constraints file
-	
-	-- wire up active-low 7SD anodes (an) as required
-	-- Tie any unused anodes to power ('1') to keep them off
+ 
 	
 end top_basys3_arch;

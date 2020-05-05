@@ -10,7 +10,7 @@
 --| 
 --| ---------------------------------------------------------------------------
 --|
---| FILENAME      : Moore_tb.vhd (TEST BENCH)
+--| FILENAME      : MooreElevatorController_tb.vhd (TEST BENCH)
 --| AUTHOR(S)     : Capt Phillip Warner, Lauren Humpherys, Christopher Katz
 --| CREATED       : 03/2017
 --| DESCRIPTION   : This file tests the Moore elevator controller module
@@ -23,7 +23,7 @@
 --|
 --|    Libraries : ieee
 --|    Packages  : std_logic_1164, numeric_std, unisim
---|    Files     : MooreElevatorController_Shell.vhd
+--|    Files     : MooreElevatorController.vhd
 --|
 --+----------------------------------------------------------------------------
 --|
@@ -70,7 +70,6 @@ architecture test_bench of MooreElevatorController_tb is
     signal clk, reset, stop, up_down : std_logic                     := '0';
     signal floor                      : std_logic_vector(3 downto 0) := (others => '0');
   
-    -- 50 MHz clock
     constant k_clk_period : time := 20 ns;
     
 begin
@@ -137,8 +136,7 @@ begin
         stop <= '0';  wait for k_clk_period;
         stop <= '1';  wait for k_clk_period * 2;    -- wait two cycles
         stop <= '0';  wait for k_clk_period;
-        --fill in the rest of the test bench here to go up to floor 15
-        wait for k_clk_period * 2;                    -- wait on floor 4 (stop should NOT matter)
+        wait for k_clk_period * 2;                  -- wait on floor 4 (stop should NOT matter)
 
  
 

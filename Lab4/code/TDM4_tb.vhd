@@ -11,8 +11,8 @@
 --| ---------------------------------------------------------------------------
 --|
 --| FILENAME      : TDM4_tb.vhd (TEST BENCH)
---| AUTHOR(S)     : Capt Phillip Warner
---| CREATED       : 03/2017
+--| AUTHOR(S)     : Capt Phillip Warner, Used by C3C Lauren Humpherys and C3C Christopher Katz
+--| CREATED       : 03/2017, Used 04/2020
 --| DESCRIPTION   : This file tests the 4 to 1 TDM.
 --|
 --| DOCUMENTATION : None
@@ -66,7 +66,7 @@ architecture test_bench of TDM4_tb is
 		);
 	end component TDM4;
 
-	-- Setup test clk (20 ns --> 50 MHz) and other signals
+	-- Setup of test clk and other signals
 	constant k_clk_period	: time 		:= 20 ns;
 	signal clk			 	: std_logic	:= '0';
 
@@ -80,7 +80,6 @@ architecture test_bench of TDM4_tb is
 begin
 	-- PORT MAPS ----------------------------------------
 
-	-- map ports for any component instances (port mapping is like wiring hardware)
 	uut_inst : TDM4 
 	generic map ( k_WIDTH => k_IO_WIDTH )
 	port map ( i_CLK   => clk,
@@ -110,7 +109,7 @@ begin
 	-- Test Plan Process --------------------------------
 	test_process : process 
 	begin
-		-- asign test values to data inputs (one-hot)
+		-- assignment of test values to data inputs (one-hot)
 		D3 <= "1000";
 		D2 <= "0100";
 		D1 <= "0010";
