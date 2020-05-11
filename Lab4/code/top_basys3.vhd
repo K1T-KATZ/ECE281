@@ -199,7 +199,7 @@ begin
 		
 		
 	clkdiv500hz_inst : clock_divider		--instantiation of clock_divider to take 
-        generic map ( k_DIV => 50000 )     -- 500 Hz clock from 100 MHz
+        generic map ( k_DIV => 5000000 )     -- 500 Hz clock from 100 MHz
         port map (						    -- TDM4
             i_clk   => clk,			        
             i_reset => btnU,			

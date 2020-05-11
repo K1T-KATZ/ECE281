@@ -9,7 +9,7 @@
     <Object name="xc7a35t_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/top_basys3.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="C:/Users/C22Christopher.Katz/Documents/GitHub/ECE281/Lab4/bitFiles/LAB4_FINAL_SUBMISSION.bit"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
   </ObjectList>

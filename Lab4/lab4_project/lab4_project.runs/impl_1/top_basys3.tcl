@@ -151,3 +151,21 @@ if {$rc} {
   unset ACTIVE_STEP 
 }
 
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
+set rc [catch {
+  create_msg_db write_bitstream.pb
+  catch { write_mem_info -force top_basys3.mmi }
+  write_bitstream -force top_basys3.bit 
+  catch {write_debug_probes -quiet -force top_basys3}
+  catch {file copy -force top_basys3.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
+} RESULT]
+if {$rc} {
+  step_failed write_bitstream
+  return -code error $RESULT
+} else {
+  end_step write_bitstream
+  unset ACTIVE_STEP 
+}
+
